@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+
 const discussionSchema = new mongoose.Schema({
   text: { type: String, required: true },
   image: { type: String },

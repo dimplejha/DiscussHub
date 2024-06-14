@@ -4,6 +4,7 @@ const authMiddleware = require('../middlewares/authMiddleware');
 const router = express.Router();
 const { updateComment, deleteComment } = require('../controllers/commentController');
 
+
 router.post('/', authMiddleware, createComment);
 router.post('/:id/like', authMiddleware, likeComment);
 router.post('/reply', authMiddleware, replyComment);

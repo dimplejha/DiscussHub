@@ -101,7 +101,6 @@ exports.unfollowUser = async (req, res) => {
 
     await user.save();
     await unfollowUser.save();
-
     res.status(200).json({ message: 'User unfollowed' });
   } catch (error) {
     return res.status(500).send({ status: false, message: error.message })

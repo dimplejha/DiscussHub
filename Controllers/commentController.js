@@ -15,7 +15,6 @@ exports.createComment = async (req, res) => {
     await discussion.save();
     res.status(201).json(comment);
   } catch (error) {
-    // res.status(500).json({ error: error.message });
     return res.status(500).send({ status: false, message: error.message })
 
   }

@@ -8,6 +8,7 @@ const {
   getAllDiscussions,
   getDiscussion,
   upload // Add this import
+  
 } = require('../Controllers/discussionController');
 const authMiddleware = require('../middlewares/authMiddleware');
 const router = express.Router();

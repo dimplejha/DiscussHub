@@ -3,6 +3,7 @@ const { getUsers, getUser, updateUser, deleteUser, followUser, unfollowUser } = 
 const authMiddleware = require('../middlewares/authMiddleware');
 const router = express.Router();
 
+
 router.get('/', authMiddleware, getUsers);
 router.get('/:id', authMiddleware, getUser);
 router.put('/:id', authMiddleware, updateUser);

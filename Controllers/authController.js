@@ -31,7 +31,6 @@ exports.signup = async (req, res) => {
     if (uniqueEmail) {
       return res.status(400).send({ status: false, message: "Email already exists" })
     }
-
     if (!validator.isValid(mobile)) {
       return res.status(400).send({ status: false, message: "mobile number is required" })
     }
