@@ -7,7 +7,7 @@ const path = require('path');
 const authRoutes = require('./routes/authRoutes');
 const userRoutes = require('./routes/userRoutes');
 const discussionRoutes = require('./routes/discussionRoutes');
-const commentRoutes = require('./routes/commentRoutes'); // Add this line
+const commentRoutes = require('./routes/commentRoutes'); 
 
 dotenv.config();
 
@@ -30,7 +30,7 @@ app.use('/uploads', express.static('uploads'));
 app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/discussions', discussionRoutes);
-app.use('/api/comments', commentRoutes); // Add this line
+app.use('/api/comments', commentRoutes); 
 
 const PORT = process.env.PORT || 5000;
 
