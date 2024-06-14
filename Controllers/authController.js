@@ -8,9 +8,9 @@ exports.signup = async (req, res) => {
     const user = new User({ name, mobile, email, password });
     await user.save();
     const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
-    res.status(201).json({ token });
+    res.status(201).json({ token, user });
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    return res.status(500).send({ status: false, message: error.message })
   }
 };
 
@@ -28,6 +28,6 @@ exports.login = async (req, res) => {
     const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
     res.status(200).json({ token });
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    return res.status(500).send({ status: false, message: error.message })
   }
 };
