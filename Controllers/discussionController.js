@@ -17,7 +17,6 @@ const upload = multer({ storage: storage });
 exports.upload = upload.single('image');
 
 exports.createDiscussion = async (req, res) => {
-  console.log('Request body:', req.body); // Log request body
   const { text, hashtags } = req.body;
   const image = req.file ? `/uploads/${req.file.filename}` : null;
   try {

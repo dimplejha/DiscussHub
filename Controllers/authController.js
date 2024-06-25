@@ -62,7 +62,7 @@ exports.signup = async (req, res) => {
     const user = new User({ name, mobile, email, password: hashedPassword });
     await user.save();
     const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
-    return res.status(201).send({ status: true, token })
+    return res.status(201).send({ status: true, user,token })
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
@@ -96,7 +96,7 @@ exports.login = async (req, res) => {
       return res.status(400).send({ status: false, error: 'Invalid credentials' })
     }
     const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
-    return res.status(400).send({ status: true, token })
+    return res.status(400).send({ status: true, user,token })
   } catch (error) {
     return res.status(500).send({ status: false, error: error.message })
   }

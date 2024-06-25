@@ -7,13 +7,13 @@ const {
   getDiscussionsByText,
   getAllDiscussions,
   getDiscussion,
-  upload // Add this import
+  upload 
   
 } = require('../Controllers/discussionController');
 const authMiddleware = require('../middlewares/authMiddleware');
 const router = express.Router();
 
-router.post('/', authMiddleware, upload, createDiscussion); // Update to use multer
+router.post('/', authMiddleware, upload, createDiscussion); 
 router.put('/:id', authMiddleware, updateDiscussion);
 router.delete('/:id', authMiddleware, deleteDiscussion);
 router.get('/tag/:tag', authMiddleware, getDiscussionsByTag);
